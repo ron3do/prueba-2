@@ -77,7 +77,7 @@ void calculo_consumo(int o){
       }
       //cout<<disp[q].tipo<<": "<<calc<<" watts-hora"<<endl;
     }
-    cout<<disp[p].tipo<<": "<<calc<<" watts-hora"<<endl;
+   // cout<<disp[p].tipo<<": "<<calc<<" watts-hora"<<endl;
   }
 
  
