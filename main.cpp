@@ -63,25 +63,38 @@ void calculo_consumo(int o){
   string disp1;
   string disp2;
   string disp3;
+  string disp4;
   float consumo=0;
   float tiempo=0;
   float calc=0;
-
+  float calc1=0;
+  float c1=0;
+  float t1=0;
+  
+  disp1=disp[0].tipo;
+  //consumo=disp[0].consumo;
+  //tiempo=disp[0].tiempo;
   for (int p=0;p<o;p++){
-    disp1=disp[p].tipo;
-    calc=((disp[p].consumo)*(disp[p].tiempo));
-    for (int q=1;q<o;q++){
-      disp2=disp[q].tipo;
-      if (disp1==disp2){
-        calc+=((disp[q].consumo)*(disp[q].tiempo));
+    disp2=disp[p].tipo;
+    if (disp1==disp2){
+      for(int q=0;q<o;q++){
+      calc1=disp[q].consumo*disp[q].tiempo;
+      calc+=calc1;
       }
-      //cout<<disp[q].tipo<<": "<<calc<<" watts-hora"<<endl;
     }
-   // cout<<disp[p].tipo<<": "<<calc<<" watts-hora"<<endl;
+    
+    //else if(disp1!=disp2){
+
+    //}
   }
+  cout<<disp1<<": "<< calc<<endl;
+}
+
 
  
-}
+    
+ 
+
 /* se crea un subprograma que despliega en pantalla un mensaje en el cual usuario puede ver las opciones que presenta el programa, 
 */
 void menu(){
