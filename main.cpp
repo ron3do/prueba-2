@@ -32,13 +32,13 @@ void registrar_iot(int n){
   
   for(int i=0;i<n;i++){
     
-    cout<<"Digite el nombre del dispositivo: "<<endl;
+    cout<<"Nombre del dispositivo: ";
     cin.ignore();
     getline(cin,disp[i].device);
-    cout<<"Digite el tipo de dispositivo que es: "<<endl;
+    cout<<"Tipo: ";
     cin.ignore();
     getline(cin,disp[i].tipo);
-    cout<<"Digite el consumo del dispositivo: "<<endl;
+    cout<<"Consumo: ";
     cin>>disp[i].consumo;
   
   
@@ -64,7 +64,7 @@ void calculo_consumo(int o){
   string disp2;
   string disp3;
   string disp4;
-  float consumo=0;
+  float consumo=0; 
   float tiempo=0;
   float calc=0;
   float calc1=0;
