@@ -23,7 +23,7 @@ struct componentes{
 
 /*
 se le da un nombre a la estructura que se utilizara en el programa*/
-struct componentes disp [MAX];
+struct componentes disp[MAX];
 
 /*
 Se crea un subprograma el cual se encarga de capta la informacion de los nombres de mos dispositivos, el tipo y el consumo
@@ -36,11 +36,12 @@ void registrar_iot(int n){
     cin.ignore();
     getline(cin,disp[i].device);
     cout<<"Tipo: ";
-    cin.ignore();
+    //cin.ignore();
     getline(cin,disp[i].tipo);
     cout<<"Consumo: ";
     cin>>disp[i].consumo;
-  
+    cout<<"-----------------"<<endl;
+
   
 }
 
@@ -58,42 +59,30 @@ void ing_tiempo (int m ){
 }
 /*sea crea un sub programa para que realice el calculo de los watts/hora que consumen los tipos de dispositivos
 */
-void calculo_consumo(int o){
-
-  string disp1;
-  string disp2;
-  string disp3;
-  string disp4;
-  float consumo=0; 
-  float tiempo=0;
-  float calc=0;
-  float calc1=0;
-  float c1=0;
-  float t1=0;
-  
-  disp1=disp[0].tipo;
-  //consumo=disp[0].consumo;
-  //tiempo=disp[0].tiempo;
-  for (int p=0;p<o;p++){
-    disp2=disp[p].tipo;
-    if (disp1==disp2){
-      for(int q=0;q<o;q++){
-      calc1=disp[q].consumo*disp[q].tiempo;
-      calc+=calc1;
+void calculo_consumo(int x){
+  string aux1;
+  float cons=0;
+  float time=0;
+  float var[x];
+  for (int i=0;i<x;i++){
+    aux1=disp[i].tipo;
+    
+    for (int j=0;j<x;j++){
+      if (disp[j].tipo==aux1){
+        var[j]=disp[j].consumo*disp[j].tiempo;
+        cons+=var[j];
+        
       }
+
     }
-    
-    //else if(disp1!=disp2){
 
-    //}
   }
-  cout<<disp1<<": "<< calc<<endl;
-}
+    cout<<cons<<endl;
 
 
- 
     
- 
+   
+}
 
 /* se crea un subprograma que despliega en pantalla un mensaje en el cual usuario puede ver las opciones que presenta el programa, 
 */
@@ -104,7 +93,8 @@ void menu(){
   cout<<"2. Para ingresar tiempo de funcionamiento"<<endl;
   cout<<"3. Para dezplegar los consumos de los Dispositivos IOT"<<endl;
   cout<<"4. Para Salir"<<endl;
-  cout<<"Ingrese Opción"<<endl;
+  cout<<"-----------------"<<endl;
+  
 }
   
  
@@ -119,8 +109,9 @@ int main() {
   do {
 
   menu(); // llama al subprograma menu
-
+  cout<<"Ingrese Opción: ";
   cin>>op; // recibe la opcion del usuario
+  cout<<"-----------------"<<endl;
   
   /* depende la opcion del usuario se toma la desicion de que subprograma llamar
   */
@@ -128,9 +119,11 @@ int main() {
 
     case 1:
 
-    cout<<"Digite la cantidadad de dispositivos IOT"<<endl;
+    cout<<"Digite la cantidadad de dispositivos IOT: ";
     cin>>cant;
+    cout<<"-----------------"<<endl;
     registrar_iot(cant);
+    cout<<"-----------------"<<endl;
     break;
 
     case 2:
